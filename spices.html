@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>مصنع التوابل والبهارات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(90deg, #8B0000, #B22222);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+
+        }
+
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #8B0000;
+            margin-bottom: 15px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .price {
+            color: #B22222;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .section {
+            background: #fff;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section p {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            font-size: 17px;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #fff;
+            color: #8B0000;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* الصورة */
+        .product-card img {
+            width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+            transition: 0.4s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* زر الطلب */
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .product-card:hover .whatsapp-btn {
+            background: #1ebe5d;
+            transform: scale(1.05);
+        }
+
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .cart-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            background: #f5f5f5;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #B22222;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        .cart-page {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 350px;
+            height: 100%;
+            background: #fff;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: none;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .close-cart {
+            background: #999;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #25D366;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: none;
+            z-index: 2000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="top-header">
+        <h1 data-ar="مصنع التوابل والبهارات" data-en="SpicesFactory">
+            مصنع التوابل والبهارات
+        </h1>
+
+        <p data-ar="توريد بهارات وبطاطس سيزونينج بجودة عالية للمصانع والمطاعم"
+            data-en="High quality spice & potato seasoning manufacturer">
+            توريد بهارات وبطاطس سيزونينج بجودة عالية للمصانع والمطاعم
+        </p>
+
+        <p style="margin-top:10px;font-size:14px" data-ar="مصنع التوابل والبهارات - توريد بالجملة والتوريد الصناعي
+        " data-en="Spice & Seasoning Factory – Wholesale & Industrial Supply">مصنع التوابل والبهارات - توريد بالجملة
+            والتوريد الصناعي
+        </p>
+        <button class="lang-btn" onclick="toggleLang()">EN</button>
+
+    </header>
+    <div class="container">
+        <div class="section">
+            <h2 data-ar="من نحن" data-en="About Us">من نحن</h2>
+
+            <p data-ar="نحن مصنع متخصص في تصنيع التوابل وبهارات البطاطس باستخدام خامات عالية الجودة."
+                data-en="We are a specialized factory producing spices and potato seasonings using high quality raw materials.">
+                نحن مصنع متخصص في تصنيع التوابل وبهارات البطاطس باستخدام خامات عالية الجودة.
+            </p>
+
+        </div>
+        <div class="section">
+            <h2 data-ar="المنتجات" data-en="Products">المنتجات</h2>
+            <div class="products">
+                <div class="product"> <img src="C:\Users\DELL\Desktop\spices factory\\salt.png">
+                    <h3 data-ar="ملح مجفف عالي الجودة" data-en="Premium Dried Salt">
+                        ملح مجفف عالي الجودة
+                    </h3>
+
+                    <p class="price" data-ar="50 جنيه / كجم" data-en="50 EGP / KG">
+                        50 جنيه / كجم
+                    </p>
+
+                    <button class="whatsapp-btn" onclick="addToCart('ملح مجفف عالي الجودة', 50)">
+                        إضافة إلى السلة
+                    </button>
+                </div>
+                <div class="product"> <img src="C:\Users\DELL\Desktop\spices factory\\potato spices.png">
+                    <h3 data-ar="ملح مجفف عالي الجودة" data-en="Premium Dried Salt">
+                        بهار بطاطس جبنه
+                    </h3>
+
+                    <p class="price" data-ar="50 جنيه / كجم" data-en="50 EGP / KG">
+                        55 جنيه / كجم
+                    </p>
+
+                    <button class="whatsapp-btn" onclick="addToCart('بهار بطاطس جبنه', 55)">
+                        إضافة إلى السلة
+                    </button>
+                </div>
+                <div class="product"> <img src="C:\Users\DELL\Desktop\spices factory\\parpecu sauce.png">
+                    <h3 data-ar="ملح مجفف عالي الجودة" data-en="Premium Dried Salt">
+                        بهار باربيكيو
+                    </h3>
+
+                    <p class="price" data-ar="50 جنيه / كجم" data-en="50 EGP / KG">
+                        60 جنيه / كجم
+                    </p>
+
+                    <button class="whatsapp-btn" onclick="addToCart('بهار باربيكيو', 60)">
+                        إضافة إلى السلة
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="section features">
+            <h2>لماذا نحن؟</h2>
+            <ul>
+                <li>✔ جودة ثابتة ومعايير تصنيع عالية</li>
+                <li>✔ أسعار جملة تنافسية</li>
+                <li>✔ توريد سريع داخل جميع المحافظات</li>
+                <li>✔ إمكانية تصنيع خلطات خاصة حسب الطلب</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>توريد مصانع وطلبات جملة</h2>
+            <p>نوفر تعاقدات طويلة المدى للمصانع والمطاعم وسلاسل المحلات مع أسعار خاصة حسب الكمية.</p> <a
+                class="whatsapp-btn" href="https://wa.me/201000746549">تواصل مع قسم المبيعات</a>
+        </div>
+        <div class="section">
+            <h2>شهادات الجودة</h2>
+            <p>نلتزم بتطبيق معايير السلامة الغذائية ونوفر شهادات جودة عند الطلب.</p>
+        </div>
+        <div class="section">
+            <h2>تحميل كتالوج المنتجات</h2>
+            <p>يمكنك تحميل كتالوج كامل بجميع المنتجات والمواصفات.</p> <a class="whatsapp-btn" href="#">تحميل الكتالوج
+                PDF</a>
+        </div>
+        <div class="section">
+            <h2>طلب توريد / نموذج طلب مباشر</h2>
+            <form>
+                <p><input type="text" id="clientName" placeholder="الاسم"
+                        style="width:100%;padding:10px;margin-bottom:10px"></p>
+                <p><input type="text" id="clientCompany" placeholder="اسم الشركة أو المطعم"
+                        style="width:100%;padding:10px;margin-bottom:10px"></p>
+                <p><input type="tel" id="clientPhone" placeholder="رقم الهاتف"
+                        style="width:100%;padding:10px;margin-bottom:10px"></p>
+
+            </form>
+        </div>
+        <div class="section">
+            <h2>تحسين الظهور على Google (SEO)</h2>
+            <p>الموقع مجهز بعنوان واضح ووصف مناسب لمحركات البحث لزيادة الوصول للعملاء.</p>
+            <ul>
+                <li>✔ كلمات مفتاحية خاصة بالتوابل وبهارات البطاطس</li>
+                <li>✔ سرعة تحميل عالية</li>
+                <li>✔ تصميم مناسب للموبايل</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>تواصل معنا</h2>
+            <p>📞 هاتف: 0237778509</p>
+            <p>📱 واتساب: 201000746549</p>
+            <p>📍 العنوان: المنطقة الصناعية – مصر</p>
+            <p style="font-size:14px">Domain Ready – الموقع جاهز للرفع على أي استضافة وربطه بدومين رسمي</p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2026 جميع الحقوق محفوظة – مصنع التوابل والبهارات</p>
+    </footer>
+
+    <div class="cart-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Cart">
+        <span class="cart-count">0</span>
+    </div>
+    <div class="cart-page" id="cartPage">
+        <h2>🛒 سلة الطلب / Cart</h2>
+        <div id="cartItems"></div>
+        <h3 id="totalPrice"></h3>
+        <button class="whatsapp-btn" onclick="sendWhatsApp()">إرسال الطلب عبر واتساب</button>
+        <button class="close-cart" onclick="toggleCart()">إغلاق</button>
+    </div>
+
+    <div id="toast"></div>
+    <button class="whatsapp-btn" onclick="sendEmail()">✉️ إرسال عبر البريد</button>
+    <div id="adminPanel">
+        <h2>لوحة تحكم الطلبات</h2>
+        <div id="ordersList"></div>
+    </div>
+
+    <script>
+        function displayOrders() {
+            const orders = JSON.parse(localStorage.getItem("orders")) || [];
+            let html = "";
+            orders.forEach((order, i) => {
+                html += `<div style="border:1px solid #ddd;margin:10px;padding:10px;">
+            <strong>طلب رقم ${i + 1}</strong><br>
+            التاريخ: ${order.date}<br>
+            الاسم: ${order.name}<br>
+            الشركة: ${order.company || "-"}<br>
+            الهاتف: ${order.phone}<br>
+            المنتجات:<br>`;
+                order.items.forEach(it => {
+                    html += `- ${it.name} × ${it.qty} = ${it.price * it.qty} جنيه<br>`;
+                });
+                html += `الإجمالي: ${order.total} جنيه</div>`;
+            });
+            document.getElementById("ordersList").innerHTML = html;
+        }
+
+        displayOrders();
+
+        function saveOrder() {
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            let name = document.getElementById("clientName").value;
+            let company = document.getElementById("clientCompany").value;
+            let phone = document.getElementById("clientPhone").value;
+
+            orders.push({
+                date: new Date().toLocaleString(),
+                name, company, phone,
+                items: cart,
+                total: cart.reduce((sum, item) => sum + item.price * item.qty, 0)
+            });
+
+            localStorage.setItem("orders", JSON.stringify(orders));
+        }
+
+        function showToast(text) {
+            const toast = document.getElementById("toast");
+            toast.innerText = "✔️ " + text;
+            toast.style.display = "block";
+            setTimeout(() => toast.style.display = "none", 2000);
+        }
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            saveCart();
+            updateCart();
+            showToast(name + " تمت إضافته إلى السلة");
+        }
+
+        function updateCart() {
+            document.querySelector('.cart-count').innerText =
+                cart.reduce((sum, item) => sum + item.qty, 0);
+
+            let items = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                items += `
+        <div class="cart-item">
+            <strong>${item.name}</strong><br>
+            السعر: ${item.price} جنيه<br>
+            الكمية:
+            <input type="number" min="1" value="${item.qty}"
+                onchange="changeQty(${index}, this.value)">
+            <br>
+            <button onclick="removeItem(${index})">❌ حذف</button>
+        </div>
+        `;
+            });
+
+            document.getElementById('cartItems').innerHTML = items;
+            document.getElementById('totalPrice').innerText =
+                'الإجمالي / Total: ' + total + ' جنيه';
+        }
+
+
+        function toggleCart() {
+            const cartPage = document.getElementById('cartPage');
+            cartPage.style.display =
+                cartPage.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.querySelector('.cart-icon').onclick = toggleCart;
+
+        function sendWhatsApp() {
+            if (cart.length === 0) {
+                showToast("السلة فارغة");
+                return;
+            }
+
+            let name = document.getElementById("clientName").value;
+            let company = document.getElementById("clientCompany").value;
+            let phone = document.getElementById("clientPhone").value;
+
+            if (!name || !phone) {
+                showToast("من فضلك املأ الاسم ورقم الهاتف");
+                return;
+            }
+
+            let message = `🛒 طلب جديد من SpicesFactory%0A`;
+            message += `👤 الاسم: ${name}%0A`;
+            message += `🏢 الشركة: ${company || "—"}%0A`;
+            message += `📞 الهاتف: ${phone}%0A%0A`;
+
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                message += `• ${item.name} × ${item.qty} = ${item.price * item.qty} جنيه%0A`;
+            });
+
+            message += `%0A💰 الإجمالي: ${total} جنيه`;
+
+            // فتح واتساب تلقائي
+            window.location.href =
+                `https://wa.me/201000746549?text=${message}`;
+            saveOrder();
+            cart = [];
+            saveCart();
+            updateCart();
+            showToast("🙏 تم إرسال الطلب✅! سيتم التواصل معك قريباً");
+
+        }
+        function sendEmail() {
+            let name = document.getElementById("clientName").value;
+            let company = document.getElementById("clientCompany").value;
+            let phone = document.getElementById("clientPhone").value;
+
+            let subject = "طلب جديد من SpicesFactory";
+            let body = `الاسم: ${name}%0Aالشركة: ${company || "-"}%0Aالهاتف: ${phone}%0A%0A`;
+            cart.forEach(item => {
+                body += `${item.name} × ${item.qty} = ${item.price * item.qty} جنيه%0A`;
+            });
+            let total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            body += `%0Aالإجمالي: ${total} جنيه`;
+
+            window.location.href = `mailto:adhammohamedhassan2582007@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        function showToast(text) {
+            const toast = document.getElementById("toast");
+            toast.innerText = text;
+            toast.style.display = "block";
+            setTimeout(() => toast.style.display = "none", 3000);
+        }
+
+        function showNotification(product) {
+            alert('✅ تم إضافة ' + product + ' إلى السلة');
+        }
+        function removeItem(index) {
+            cart.splice(index, 1);
+            saveCart();
+            updateCart();
+        }
+
+        function changeQty(index, qty) {
+            cart[index].qty = parseInt(qty);
+            saveCart();
+            updateCart();
+        }
+        function saveCart() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        updateCart();
+
+    </script>
+
+</body>
+<script>
+    let currentLang = "ar";
+
+    function toggleLang() {
+        const elements = document.querySelectorAll("[data-ar]");
+        const btn = document.querySelector(".lang-btn");
+
+        elements.forEach(el => {
+            el.textContent =
+                currentLang === "ar"
+                    ? el.getAttribute("data-en")
+                    : el.getAttribute("data-ar");
+        });
+
+        if (currentLang === "ar") {
+            document.documentElement.lang = "en";
+            document.documentElement.dir = "ltr";
+            btn.textContent = "AR";
+            currentLang = "en";
+        } else {
+            document.documentElement.lang = "ar";
+            document.documentElement.dir = "rtl";
+            btn.textContent = "EN";
+            currentLang = "ar";
+        }
+    }
+</script>
+
+
+</html>
