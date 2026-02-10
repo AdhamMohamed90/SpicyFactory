@@ -27,8 +27,8 @@ cd spice-factory-website
 
 # Screenshots
 ![Homepage Screenshot](./images/salt.png)
-![Homepage Screenshot](./images/potato spices.png)
-![Homepage Screenshot](./images/parpecu sauce.png)
+![Homepage Screenshot](./images/parpecu_sauce.png)
+![Homepage Screenshot](./images/parpecu_sauce.png)
 
 
 # Project Purpose
