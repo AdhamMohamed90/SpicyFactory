@@ -26,7 +26,7 @@ The website showcases products, factory information, and provides a clean and us
 cd spice-factory-website
 
 # Screenshots
-![Homepage Screenshot](1.png)
+![Homepage Screenshot](./images/salt.png)
 
 # Project Purpose
 This project was built to represent a spice factory online, display its products, and provide information in a professional bilingual format.
@@ -44,8 +44,8 @@ salt.png
 index.html
 
 # 📁 Files
-index.html          # Main website
-catalogue.pdf       # Reqs you need it to run the program
+- index.html          # Main website
+- catalogue.pdf       # Reqs you need it to run the program
 
 # 🎮 How to Use
 Run the website :
