@@ -1,9 +1,9 @@
-🔑 keyGarden - Custom Password Generator
+# 🔑 keyGarden - Custom Password Generator
 Python GUI Platform
 
 A modern password generator built with Python and CustomTkinter.
 
-✨ Features
+# ✨ Features
 Auto Generate - Strong, high-length passwords
 Text-Based - Generate from user text
 Passphrase - Memorable word combinations
@@ -27,11 +27,11 @@ chmod +x main.py
 
 # run the program
 python main.py
-📁 Files
+# 📁 Files
 main.py                # Main application
 requirements.txt       # Reqs you need it to run the program
 passwords.txt          # Export file
-🎮 How to Use
+# 🎮 How to Use
 Run the application:
 
 python main.py
@@ -40,23 +40,23 @@ Auto Generate - Click button for random password
 Text-Based - Enter text, click "Generate from Text"
 Passphrase - Click "Generate Passphrase"
 Batch - Enter number, click "Generate & Save Batch"
-🔧 Requirements.txt
+# 🔧 Requirements.txt
 Create file with:
 
 customtkinter >= 5.2.2
 CTkMessagebox >= 2.7
 pyperclip >= 1.11.0
 cryptography >= 46.0.4
-🛠️ Setup Steps
+# 🛠️ Setup Steps
 Install Python 3.8+
 Install Requirements: pip install -r requirements.txt
 Run: python main.py
 Use the GUI buttons
-📝 Notes
+# 📝 Notes
 Passwords saved to passwords.txt
 Copy buttons available for each password
 Customize themes in code
-⚠️ Troubleshooting
+# ⚠️ Troubleshooting
 Module error: Run pip install -r requirements.txt
 GUI issues: Check Python version (3.13+)
 Save errors: Check folder permissions
