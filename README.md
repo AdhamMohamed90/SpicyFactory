@@ -26,8 +26,8 @@ The website showcases products, factory information, and provides a clean and us
 cd spice-factory-website
 
 # Screenshots
-![Homepage Screenshot](./images/salt.png)
 ![Homepage Screenshot](./images/parpecu_sauce.png)
+![Homepage Screenshot](./images/salt.png)
 ![Homepage Screenshot](./images/potato_spices.png)
 
 
@@ -47,8 +47,8 @@ salt.png
 index.html
 
 # 📁 Files
-- index.html          # Main website
-- catalogue.pdf       # Reqs you need it to run the program
+- index.html                        # Main website
+- catalogue.pdf                     # Reqs you need it to run the program
 
 # 🎮 How to Use
 Run the website :
