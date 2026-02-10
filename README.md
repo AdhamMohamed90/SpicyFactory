@@ -27,6 +27,9 @@ cd spice-factory-website
 
 # Screenshots
 ![Homepage Screenshot](./images/salt.png)
+![Homepage Screenshot](./images/potato spices.png)
+![Homepage Screenshot](./images/parpecu sauce.png)
+
 
 # Project Purpose
 This project was built to represent a spice factory online, display its products, and provide information in a professional bilingual format.
