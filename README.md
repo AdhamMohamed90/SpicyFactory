@@ -1,65 +1,69 @@
-# 🔑 keyGarden - Custom Password Generator
-Python GUI Platform
-
-A modern password generator built with Python and CustomTkinter.
+# 🔑 website - SpicesFactory
+A bilingual web application (Arabic & English) for a spice and seasoning factory.  
+The website showcases products, factory information, and provides a clean and user-friendly experience.
 
 # ✨ Features
-Auto Generate - Strong, high-length passwords
-Text-Based - Generate from user text
-Passphrase - Memorable word combinations
-Batch Export - Multiple passwords to file
-🚀 Installation
-# Install CustomTkinter
-git clone https://github.com/OmarCode-1/KeyGarden.git
+- Arabic & English language support
+- Responsive design for all screen sizes
+- Product catalog for spices and seasonings
+- Modern and clean user interface
+- Easy navigation between pages and languages
+
+# 🚀 Installation
+- Clone the repository : cd spice-factory-website
+- git clone https://github.com/username/spice-factory-website.git
+
+# Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+# Language Support
+- Arabic
+- English
 
 # change the directory
-cd KeyGarden
+cd spice-factory-website
 
-# make a virtual environment
-python -m venv .venv
-source .venv/bin/activate
+# Screenshots
+![Homepage Screenshot](1.png)
 
-# install the reqs
-python -m pip install -r requirements.txt
+# Project Purpose
+This project was built to represent a spice factory online, display its products, and provide information in a professional bilingual format.
 
-# change the mode of the program if you using linux
-chmod +x main.py
+# 🛠️ Author
+Adham Mohamed Hassan
+
+# 🔧 install the reqs
+catalogue.pdf
+parpecu sauce.png
+potato spices.png
+salt.png
 
 # run the program
-python main.py
+index.html
+
 # 📁 Files
-main.py                # Main application
-requirements.txt       # Reqs you need it to run the program
-passwords.txt          # Export file
+index.html          # Main website
+catalogue.pdf       # Reqs you need it to run the program
+
 # 🎮 How to Use
-Run the application:
+Run the website :
 
-python main.py
-Four Options:
-Auto Generate - Click button for random password
-Text-Based - Enter text, click "Generate from Text"
-Passphrase - Click "Generate Passphrase"
-Batch - Enter number, click "Generate & Save Batch"
-# 🔧 Requirements.txt
-Create file with:
+index.html
+Options:
+Burchase product - Click button for specific product do you need then fill the texts like :- 
+name - phone - company
 
-customtkinter >= 5.2.2
-CTkMessagebox >= 2.7
-pyperclip >= 1.11.0
-cryptography >= 46.0.4
-# 🛠️ Setup Steps
-Install Python 3.8+
-Install Requirements: pip install -r requirements.txt
-Run: python main.py
-Use the GUI buttons
 # 📝 Notes
-Passwords saved to passwords.txt
-Copy buttons available for each password
-Customize themes in code
+order sent to the factorie's whatsApp or Email Automatically
+
+
 # ⚠️ Troubleshooting
 Module error: Run pip install -r requirements.txt
-GUI issues: Check Python version (3.13+)
-Save errors: Check folder permissions
-Tool created by Omar Ibrahim • © 2026
+GUI issues: Check HTML version (5)
+Save errors: Check pdf folder
 
-Stay secure!
+Website created by Adham Mohamed • © 2026
+
+With My Best Wishes!
