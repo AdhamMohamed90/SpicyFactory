@@ -11,7 +11,7 @@ The website showcases products, factory information, and provides a clean and us
 
 # 🚀 Installation
 - Clone the repository : cd spice-factory-website
-- git clone https://github.com/username/spice-factory-website.git
+- git clone [https://github.com/username/spice-factory-website.git](https://adhammohamed90.github.io/SpicyFactory/)
 
 # Technologies Used
 - HTML
